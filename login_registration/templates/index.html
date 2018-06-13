@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> 
+    <sript src="{{ url_for('static', filename='js/main.js') }}"></sript>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <h2>Login and Registration</h1>
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <h3>Register here!</h2>
+                <form action="success" method='post'>
+                    <p>First Name:</p>
+                    <input type="text" name="first_name" value={{ session['first_name'] }}>
+                    {% with errors = get_flashed_messages(category_filter=['first_name']) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <label class="error">{{ msg }}</label>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                    <p>Last Name:</p>
+                    <input type="text" name="last_name" value={{ session['last_name'] }}>
+                    {% with errors = get_flashed_messages(category_filter=['last_name']) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <label class="error">{{ msg }}</label>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                    <p>Email:</p>
+                    <input type="text" name="email" value={{ session['email'] }}>
+                    {% with errors = get_flashed_messages(category_filter=['email']) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <label class="error">{{ msg }}</label>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                    <p>Password:</p>
+                    <input type="password" name="password" value={{ session['password'] }}>
+                    {% with errors = get_flashed_messages(category_filter=['password']) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <label class="error">{{ msg }}</label>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                    <p>Confirm Password:</p>
+                    <input type="password" name="pw_confirm" value={{ session['pw_confirm'] }}>
+                    {% with errors = get_flashed_messages(category_filter=['pw_confirm']) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <label class="error">{{ msg }}</label>
+                                <br>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                    <input type="submit" name="Submit" value="Register">
+                    <input type="submit" name="Reset" value="Reset">
+                </form>
+            </div>
+
+            <div class="col s12 m4 l3"></div>
+
+            <div class="right-align col s12 m4 l5">
+                <div class="login">
+                    <form action="login" method="post">
+                        <h3>Login here!</h3>
+                        {% with errors = get_flashed_messages(category_filter=['login']) %}
+                            {%- if errors %}
+                                {% for msg in errors %}
+                                    <label class="error">{{ msg }}</label>
+                                    <br>
+                                {% endfor -%}
+                            {% endif %}
+                        {% endwith %}
+                        <p>Email:</p>
+                        <input type="text" name="email2" value={{ session['email2'] }}>
+                        <p>Password:</p>
+                        <input type="password" name="password2" value={{ session['password2'] }}>
+                        <input type="submit" name="Login" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

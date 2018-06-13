@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script>
+        window.onload = function () {
+        dataPoints = [];
+        '{% for i in range(0, length-1) %}'
+            y = '{{ clients[i]["leads"] }}'
+            label =  '{{clients[i]["name"] }}'
+            dataPoints.push({y, label},);
+        '{% endfor %}'
+        var options = {
+            title: {
+                text: "Desktop OS Market Share in 2017"
+            },
+            subtitles: [{
+                text: "As of November, 2017"
+            }],
+            animationEnabled: true,
+            data: [{
+                type: "pie",
+                startAngle: 40,
+                toolTipContent: "<b>{label}</b>: {y}%",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}%",
+                dataPoints
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+        
+        }
+        </script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>List of all customers and number of leads</h1>
+        <table>
+            <thead>
+                <th>Customer Name</th>
+                <th>Number of Leads</th>
+            </thead>
+            <tbody>
+                {% for i in clients %}
+                    <tr>
+                        <td>{{ i['name'] }}</td>
+                        <td>{{ i['leads'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> 
+    <sript src="{{ url_for('static', filename='js/main.js') }}"></sript>
+</head>
+<body>
+    <div class="wrapper">
+        <p class="green">You've been successfully registered!</p>
+        <h1>Welcome, you've been logged in, {{session['first_name']}}</h1>
+        <form action="back" method="post">
+            <input type="submit" name="Back" value="Back">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+body {
+    background-color: #526779;
+    color: white;
+    text-align: center;
+}
+
+input {
+    padding: 1%;
+    border-radius: 0.5rem;
+}
+
+.row {
+    text-align: left;
+}
+
+.wrapper {
+    padding: 2%;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+.login {
+
+    display: inline-block;
+    vertical-align: top;
+    margin-left: auto;
+    text-align: left;
+}

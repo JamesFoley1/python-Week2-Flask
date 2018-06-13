@@ -1,0 +1,9 @@
+.wrapper {
+    padding: 10px;
+}
+
+.green {
+    background-color: green;
+    height: 120px;
+    width: 400px;
+}

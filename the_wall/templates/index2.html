@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> 
+    <sript src="{{ url_for('static', filename='js/main.js') }}"></sript>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="nav-wrapper">
+                <form action="back" method="post">
+                    <div class="row">                        
+                        <a href="#" class="left brand-logo col s6 m3 l3">The Wall</a>
+                        <a href="#" class="brand-logo right-align col s0 m6 l6">Welcome (Name)!</a>
+                        <input class="right col s6 m3 l3 waves-effect waves-light btn" type="submit" name="Back" value="Logout">
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col s6">
+                <form>
+                    <h6 class="center accent-1">___ message(s) for you (Name)</h6>
+                    <ul class="collection">
+                        <li class="collection-item"><button class="btn waves-effect waves-light" type="submit" name="Delete" placeholder="user">Delete<i class="small material-icons right">delete</i></button></li>
+                        <li class="collection-item"><button class="btn waves-effect waves-light" type="submit" name="Delete" placeholder="user">Delete<i class="small material-icons right">delete</i></button></li>
+                        <li class="collection-item"><button class="btn waves-effect waves-light" type="submit" name="Delete" placeholder="user">Delete<i class="small material-icons right">delete</i></button></li>
+                        <li class="collection-item"><button class="btn waves-effect waves-light" type="submit" name="Delete" placeholder="user">Delete<i class="small material-icons right">delete</i></button></li>
+                    </ul>
+                </form>
+            </div>
+            <div class="col s6">
+                <form>
+                    <h6 class="center accent-1">Send a message.</h6>
+                    <ul class="collection">
+                        <li class="collection-item"><input type="text" name="message"> <button class="btn waves-effect waves-light" type="submit" name="Submit"><i class="small material-icons">send</i></button></li>
+                        <li class="collection-item"><input type="text" name="message"> <button class="btn waves-effect waves-light" type="submit" name="Submit"><i class="small material-icons">send</i></button></li>
+                        <li class="collection-item"><input type="text" name="message"> <button class="btn waves-effect waves-light" type="submit" name="Submit"><i class="small material-icons">send</i></button></li>
+                        <li class="collection-item"><input type="text" name="message"> <button class="btn waves-effect waves-light" type="submit" name="Submit"><i class="small material-icons">send</i></button></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

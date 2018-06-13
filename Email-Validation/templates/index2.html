@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="green">
+            <h2>The email address you entered ({{ session['email'] }}) is a Valid email address! Thank you!</h2>
+        </div>
+        <h1>Email Address Entered:</h1>
+        <table style="border: 1px solid black; overflow: hidden;">
+            <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                    
+                {% for i in range (new_length-1, -1, -1) %}
+                    <tr>
+                        <td>{{ new_list[i]['email'] }}</td>
+                        <td>{{ new_list[i]['created_at'] }}</td>
+                        <td>{{ new_list[i]['updated_at'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action='/back' method="post">
+            <input type="submit" name="back" value="Go Back">
+        </form>
+    </div>
+</body>
+</html>

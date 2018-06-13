@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Friends List:</h1>
+        <table>
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Occupation</th>
+            </thead>
+            <tbody>
+                {% for i in session['friends'] %}
+                    <tr>
+                        <td>{{ i['first_name'] }}</td>
+                        <td>{{ i['last_name'] }}</td>
+                        <td>{{ i['occupation'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="friends" method='post'>
+            <h1>Add a Friend</h1>
+            <p>First name:</p>
+            <input type="text" name="first_name">
+            <p>Last name:</p>
+            <input type="text" name="last_name">
+            <p>Occupaton:</p>
+            <input type="text" name="occupation">
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
